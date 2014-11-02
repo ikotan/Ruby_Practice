@@ -11,5 +11,6 @@ def parse ( page_source )
   }
 end
 
-x = parse( open( "samplepage.html", &:read ) )
+# x = parse( open( "samplepage.html", &:read ) )
+x = parse( `/usr/bin/wget -q -O- http://crawler.sbcr.jp/samplepage.html` )
 p x[0,4]
