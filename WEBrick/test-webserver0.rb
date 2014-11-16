@@ -10,6 +10,7 @@ class TestContentServlet < WEBrick::HTTPServlet::AbstractServlet
                when /\.txt$/;  text_content req.path
                else;           "dummy"
                end
+    puts req
     res.content_type = WEBrick::HTTPUtils.mime_type(
       req.path_info,
       WEBrick::HTTPUtils::DefaultMimeTypes
