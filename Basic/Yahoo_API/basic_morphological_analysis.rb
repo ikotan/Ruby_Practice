@@ -10,7 +10,6 @@ def request(text)
   url = "#{BASE_URL}#{params}" + "&sentence=" + URI.encode("#{text}")
   puts url
   response = open(url)
-  puts response
   doc = REXML::Document.new(response).elements[
     'ResultSet/uniq_result/word_list/']
   doc.elements.each('word') { |element|
@@ -22,4 +21,3 @@ end
 
 text = "隣の客はよく柿食う客だ"
 request(text)
-
